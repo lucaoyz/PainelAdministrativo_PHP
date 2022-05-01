@@ -17,9 +17,46 @@ $dados = mysqli_fetch_array($sql);
 <meta charset="utf-8">
 <title> Formulário Atualizar </title>
 <link rel="stylesheet" type="text/css" href="../css/formatacao.css">
+
+<script language="JavaScript">
+	
+  function mascara(t, mask){
+ 
+  var i = t.value.length;
+  var saida = mask.substring(1,0);
+  var texto = mask.substring(i)
+  
+   if (texto.substring(0,1) != saida){
+       t.value += texto.substring(0,1);
+   }
+ 
+  }
+ 
+  function foco() {
+   document.frm_cliente.txt_nome.focus()
+ }
+ 
+  function validar_dados() {
+   if(document.frm_cliente.txt_nome.value=="") {
+         alert ("Você deve preencher o campo Nome!");
+     document.frm_cliente.txt_nome.focus();
+ 
+         return false;
+   }
+ 
+   if(document.frm_cliente.txt_email.value=="") {
+         alert ("Você deve preencher o campo email!");
+     document.frm_cliente.txt_email.focus();
+ 
+         return false;
+   }
+  }
+   
+ </script>
+
 </head>
-<body>
-<form name="frm_cliente" action="atualizar_cliente.php" method="post">
+<body onload="foco()">
+<form name="frm_cliente" id="frm_cliente" action="atualizar_cliente.php" method="post">
 <div id="principal">
   <h1> Atualizar login </h1>
     <label> Código </label>
@@ -40,7 +77,7 @@ $dados = mysqli_fetch_array($sql);
     <option value="F" <?php if($dados['cli_sexo'] == "F") { echo "selected";} ?>> Feminino</option>
     </select>
 
-    <input name="btn_enviar" type="submit" class="btn">
+    <input name="btn_enviar" type="submit" class="btn" onclick="return validar_dados()">
 </div>
 </form>
 </body>

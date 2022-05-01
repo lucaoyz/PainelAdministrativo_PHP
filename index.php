@@ -34,7 +34,7 @@ body .btn{
     color: green;
 
 }
-
+}
 </style>
 
 </head>

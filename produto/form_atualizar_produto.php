@@ -20,9 +20,61 @@ $sql2 = mysqli_query($con, $sql2) or die ("Erro na sql2!") ;
 <meta charset="utf-8">
 <title> Formulário Atualizar </title>
 <link rel="stylesheet" type="text/css" href="../css/formatacao.css">
+
+<script language="JavaScript">
+	
+  function mascara(t, mask){
+ 
+  var i = t.value.length;
+  var saida = mask.substring(1,0);
+  var texto = mask.substring(i)
+  
+   if (texto.substring(0,1) != saida){
+       t.value += texto.substring(0,1);
+   }
+ 
+  }
+ 
+  function foco() {
+   document.frm_produto.txt_descricao.focus()
+ }
+ 
+  function validar_dados() {
+   if(document.frm_produto.txt_descricao.value=="") {
+         alert ("Você deve preencher o campo descrição!");
+     document.frm_produto.txt_descricao.focus();
+ 
+         return false;
+   }
+ 
+   if(document.frm_produto.txt_qtde.value=="") {
+         alert ("Você deve preencher o campo quantidade!");
+     document.frm_produto.txt_qtde.focus();
+ 
+         return false;
+   }
+  
+  if(document.frm_produto.txt_preco.value=="") {
+         alert ("Você deve preencher o campo preço!");
+     document.frm_produto.txt_preco.focus();
+ 
+         return false;
+   }
+
+  if(document.frm_produto.txt_foto.value=="") {
+         alert ("Você deve enviar uma foto no campo foto!");
+     document.frm_produto.txt_foto.focus();
+ 
+         return false;
+   }
+  }
+
+ </script>
+ 
+
 </head>
-<body>
-<form name="frm_produto" action="atualizar_produto.php" method="post" enctype="multipart/form-data">
+<body onload="foco()">
+<form name="frm_produto" id="frm_produto" action="atualizar_produto.php" method="post" enctype="multipart/form-data">
 <div id="principal">
   <h1> Atualizar produto </h1>
     <label> Código </label>
@@ -60,7 +112,7 @@ $sql2 = mysqli_query($con, $sql2) or die ("Erro na sql2!") ;
 
     </select>
 
-    <input name="btn_enviar" type="submit" class="btn">
+    <input name="btn_enviar" type="submit" class="btn" onclick="return validar_dados()">
 </div>
 </form>
 </body>

@@ -18,9 +18,46 @@ $dados = mysqli_fetch_array($sql);
 <meta charset="utf-8">
 <title> Formulário Atualizar </title>
 <link rel="stylesheet" type="text/css" href="../css/formatacao.css">
+
+<script language="JavaScript">
+	
+  function mascara(t, mask){
+ 
+  var i = t.value.length;
+  var saida = mask.substring(1,0);
+  var texto = mask.substring(i)
+  
+   if (texto.substring(0,1) != saida){
+       t.value += texto.substring(0,1);
+   }
+ 
+  }
+ 
+  function foco() {
+   document.frm_news.txt_titulo.focus()
+ }
+ 
+  function validar_dados() {
+   if(document.frm_news.txt_titulo.value=="") {
+         alert ("Você deve preencher o campo titulo!");
+     document.frm_news.txt_titulo.focus();
+ 
+         return false;
+   }
+ 
+   if(document.frm_news.txt_autor.value=="") {
+         alert ("Você deve preencher o campo autor!");
+     document.frm_news.txt_autor.focus();
+ 
+         return false;
+   }
+  }
+   
+ </script>
+
 </head>
-<body>
-<form name="frm_news" action="atualizar_news.php" method="post">
+<body onload="foco()">
+<form name="frm_news" id="frm_news" action="atualizar_news.php" method="post">
 <div id="principal">
   <h1> Atualizar News </h1>
     <label> Código </label>
@@ -45,7 +82,7 @@ $dados = mysqli_fetch_array($sql);
     <option value="I" <?php if($dados['new_status'] == "I") { echo "selected";} ?>> Inativo</option>
     </select>
     
-    <input name="btn_enviar" type="submit" class="btn">
+    <input name="btn_enviar" type="submit" class="btn" onclick="return validar_dados()">
 </div>
 </form>
 </body>
