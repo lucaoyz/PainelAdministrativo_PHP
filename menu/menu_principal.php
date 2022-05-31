@@ -131,6 +131,26 @@ img {
       <div class="botao"> <img src="../img/icon_consulta.png"> Consulta </div>
     </a>
 
+    <div class="titulo"> :: Venda </div>
+    
+    <a href="../venda/form_venda.php" target="conteudo"> 
+      <div class="botao"> <img src="../img/icon_cadastro.png"> Formulário de Vendas  </div> 
+    </a>
+    
+    <a href="../venda/consulta_venda.php" target="conteudo"> 
+      <div class="botao"> <img src="../img/icon_consulta.png"> Consulta </div>
+    </a>
+
+    <div class="titulo"> :: Item Venda </div>
+    
+    <a href="../venda/form_item_venda.php" target="conteudo"> 
+      <div class="botao"> <img src="../img/icon_cadastro.png"> Formulário de Itens Vendas  </div> 
+    </a>
+    
+    <a href="../venda/consulta_item_venda.php" target="conteudo"> 
+      <div class="botao"> <img src="../img/icon_consulta.png"> Consulta </div>
+    </a>
+
 	<div class="titulo"> :: News </div>
     
     <a href="../news/form_news.php" target="conteudo"> 
