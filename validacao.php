@@ -19,7 +19,7 @@ echo $total = mysqli_num_rows($sql);
 if ($total == 1) {
 	$_SESSION["usuario"] = $usuario;
 	$_SESSION["senha"] = $senha;
-	header("location: menu/menu_principal.php");
+	header("location: modulos/menu.html");
 } else {
 	header("location: acesso_negado.php");
 }
