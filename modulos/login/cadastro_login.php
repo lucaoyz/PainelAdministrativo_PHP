@@ -1,6 +1,6 @@
 ﻿<?PHP
 
-require_once('../conexao/banco.php');
+require_once('../../conexao/banco.php');
 
 $nome 	= $_REQUEST['txt_nome'];
 $login 	= $_REQUEST['txt_login'];
