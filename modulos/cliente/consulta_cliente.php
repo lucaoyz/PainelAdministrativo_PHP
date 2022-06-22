@@ -1,6 +1,6 @@
 ﻿<?PHP
-require_once("../seguranca.php");
-require_once('../conexao/banco.php');
+require_once("../../seguranca.php");
+require_once('../../conexao/banco.php');
 
 $cons_codigo = isset($_REQUEST['txt_cons_codigo']) ? $_REQUEST['txt_cons_codigo'] : '';
 $cons_nome   = isset($_REQUEST['txt_cons_nome']) ? $_REQUEST['txt_cons_nome'] : '';

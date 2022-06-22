@@ -1,6 +1,6 @@
 ﻿<?PHP
 
-require_once('../conexao/banco.php');
+require_once('../../conexao/banco.php');
 
 $nome 	= $_REQUEST['txt_nome'];
 $data_nascimento 	= $_REQUEST['data_nascimento'];
