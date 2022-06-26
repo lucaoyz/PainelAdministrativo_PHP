@@ -36,7 +36,7 @@ $sql = mysqli_query($con, $sql) or die ("Erro na sql!") ;
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Consulta Fornecedor</title>
+    <title>Consulta News</title>
 
     <meta name="description" content="" />
 
@@ -106,7 +106,7 @@ $sql = mysqli_query($con, $sql) or die ("Erro na sql!") ;
         <div class="container-xxl flex-grow-1 container-p-y">
             <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Consulta</h4>
             <div class="card">
-                <h5 class="card-header">Consulta de Fornecedor</h5>
+                <h5 class="card-header">Consulta News</h5>
                 <div class="table-responsive text-nowrap">
                     <table class="table table-striped">
                     <form name="frm_consulta" action="consulta_cliente.php" method="post">

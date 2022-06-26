@@ -31,7 +31,7 @@ $sql = mysqli_query($con, $sql) or die ("Erro na sql!") ;
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Consulta Fornecedor</title>
+    <title>Consulta Venda</title>
 
     <meta name="description" content="" />
 
@@ -97,63 +97,52 @@ $sql = mysqli_query($con, $sql) or die ("Erro na sql!") ;
        <div class="layout-page">
 
         <!-- Content wrapper -->
-            <div class="content-wrapper">
-        <div class="container-xxl flex-grow-1 container-p-y">
-            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Consulta</h4>
-            <div class="card">
-                <h5 class="card-header">Consulta de Fornecedor</h5>
-                <div class="table-responsive text-nowrap">
-                    <table class="table table-striped">
-                    <form name="frm_consulta" action="consulta_cliente.php" method="post">
-                    <input style="margin-left: 20px;" name="txt_cons_codigo" type="text" placeholder="código">
-                    <input style="margin-left: 20px;" name="txt_cons_nome" type="text" placeholder="nome">
-                    <input style="margin-left: 20px;" class="btn" name="btn_consultar" type="submit" value="Buscar">
-                  </form><br>
-                        <thead>
-                          <tr>
-                            <th>ID</th>
-                            <th>Título</th>
-                            <th>Descrição</th>
-                            <th>Autor</th>
-                            <th>Data Cadastro</th>
-                            <th>Status</th>
-                            <th>Ações</th>
-                        </tr>
-                        </thead>
-                        <tbody class="table-border-bottom-0">
-                        <?php while ($dados = mysqli_fetch_array($sql)) { ?>    
+            
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Consulta</h4>
+        <div class="card">
+            <h5 class="card-header">Consulta de Vendas</h5>
+            <div class="table-responsive text-nowrap">
+                <table class="table table-striped">
+                    <thead>
                         <tr>
-                            <td><?php echo $dados['new_codigo']; ?></td>
-                            <td><strong><?php echo $dados['new_titulo']; ?></strong></td>
-                            <td><?php echo $dados['new_descricao']; ?></td>
-                            <td><?php echo $dados['new_autor']; ?></td>
+                            <th>ID</th>
+                            <th>Nome do Cliente</th>
+                            <th>Tipo de Pagamento</th>
+                            <th>Data de Cadastro</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                    <?php while ($dados = mysqli_fetch_array($sql)) { ?>
+                        <tr>
+                            <td><?php echo $dados['ven_codigo']; ?> </td>
+                            <td><strong><?php echo $dados['cli_nome']; ?> </strong></td>
+                            <td> <?php echo $dados['ven_tipo_pagamento']; ?> </td>
                             <td><span class="badge bg-label-primary me-1"><?php echo $dados['data']; ?></span></td>
-                            <td><?php echo $dados['new_status']; ?></td>
-                                <td>
+                            <td>
                                 <div class="dropdown">
                                   <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                   </button>
                                   <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="form_atualizar_news.php?new_codigo=<?php echo $dados['new_codigo']; ?>"
+                                    <a class="dropdown-item" href="form_atualizar_venda.php?ven_codigo=<?php echo $dados['ven_codigo']; ?>"
                                       ><i class="bx bx-edit-alt me-1"></i> Editar</a
                                     >
-                                    <a class="dropdown-item" href="delete_news.php?new_codigo=<?php echo $dados['new_codigo']; ?>" onclick="excluir_registro(event)"
+                                    <a class="dropdown-item" href="delete_venda.php?ven_codigo=<?php echo $dados['ven_codigo']; ?>" onclick="excluir_registro(event)"
                                       ><i class="bx bx-trash me-1"></i> Excluir</a
                                     >
                                   </div>
                                 </div>
                               </td>
-                            </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-                </div>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
             </div>
-            <div class="content-backdrop fade"></div>
         </div>
-        <!-- / Layout page -->
-      </div>
+        <div class="content-backdrop fade"></div>
+    </div>
 
       <!-- Overlay -->
       <div class="layout-overlay layout-menu-toggle"></div>
@@ -180,42 +169,4 @@ $sql = mysqli_query($con, $sql) or die ("Erro na sql!") ;
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
-</html>
-
-  <div class="linha"> 
-    <div class="coluna_01"> <strong> ID </strong></div>
-    <div class="coluna_02"> <strong> Cliente </strong></div>
-    <div class="coluna_03"> <strong> Tipo de pagamento </strong></div>
-    <div class="coluna_01"> <strong> Data </strong></div>
-
-  </div>
-      
-<?php while ($dados = mysqli_fetch_array($sql)) { ?>
-
-  <div class="linha"> 
-  
-    <div class="coluna_01"> <?php echo $dados['ven_codigo']; ?> </div>
-    <div class="coluna_02"> <?php echo $dados['cli_nome']; ?> </div>
-    <div class="coluna_03"> <?php echo $dados['ven_tipo_pagamento']; ?> </div>
-    <div class="coluna_01"> <?php echo $dados['data']; ?> </div>
-    
-
-    <div class="coluna_01">
-      <a href="delete_venda.php?ven_codigo=<?php echo $dados['ven_codigo']; ?>" onclick="excluir_registro(event)">
-        <img src="../img/excluir.png"> 
-      </a>
-    </div>
-    
-    <div class="coluna_01">
-      <a href="form_atualizar_venda.php?ven_codigo=<?php echo $dados['ven_codigo']; ?>"> 
-        <img src="../img/edit.png"> 
-      </a>
-    </div>
-    
-  </div>
-  
-<?php } ?>
-</div>
-</body>
-</html>
 
