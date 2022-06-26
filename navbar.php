@@ -131,7 +131,7 @@
             </a>
           </li>
           <li class="menu-item">
-            <a href="http://localhost/PainelAdministrativo_PHP/modulos/produto/consulta.php" class="menu-link">
+            <a href="http://localhost/PainelAdministrativo_PHP/modulos/produto/consulta_produto.php" class="menu-link">
               <div data-i18n="Without navbar">Consulta</div>
             </a>
           </li>

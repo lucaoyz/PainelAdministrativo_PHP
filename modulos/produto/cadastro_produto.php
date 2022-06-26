@@ -1,6 +1,6 @@
 ﻿<?PHP
 
-require_once('../conexao/banco.php');
+require_once('../../conexao/banco.php');
 
 $descricao 	= $_REQUEST['txt_descricao'];
 $qtde 		= $_REQUEST['txt_qtde'];

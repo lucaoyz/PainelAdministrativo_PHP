@@ -1,6 +1,6 @@
 ﻿<?php
-require_once("../seguranca.php");
-require_once('../conexao/banco.php');
+require_once("../../seguranca.php");
+require_once('../../conexao/banco.php');
 
 $id = $_REQUEST['pro_codigo'];
 
@@ -14,106 +14,206 @@ $sql2 = mysqli_query($con, $sql2) or die ("Erro na sql2!") ;
 
 
 ?>
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title> Formulário Atualizar </title>
-<link rel="stylesheet" type="text/css" href="../css/formatacao.css">
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../../assets/"
+  data-template="vertical-menu-template-free"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
 
-<script language="JavaScript">
+    <title>Formulário de login</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../../assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="../../assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../../assets/js/config.js"></script>
+
+    <script language="JavaScript">
 	
-  function mascara(t, mask){
+ function mascara(t, mask){
+
+ var i = t.value.length;
+ var saida = mask.substring(1,0);
+ var texto = mask.substring(i)
  
-  var i = t.value.length;
-  var saida = mask.substring(1,0);
-  var texto = mask.substring(i)
-  
-   if (texto.substring(0,1) != saida){
-       t.value += texto.substring(0,1);
-   }
- 
+  if (texto.substring(0,1) != saida){
+      t.value += texto.substring(0,1);
   }
- 
-  function foco() {
-   document.frm_produto.txt_descricao.focus()
+
  }
- 
-  function validar_dados() {
-   if(document.frm_produto.txt_descricao.value=="") {
-         alert ("Você deve preencher o campo descrição!");
-     document.frm_produto.txt_descricao.focus();
- 
-         return false;
-   }
- 
-   if(document.frm_produto.txt_qtde.value=="") {
-         alert ("Você deve preencher o campo quantidade!");
-     document.frm_produto.txt_qtde.focus();
- 
-         return false;
-   }
-  
-  if(document.frm_produto.txt_preco.value=="") {
-         alert ("Você deve preencher o campo preço!");
-     document.frm_produto.txt_preco.focus();
- 
-         return false;
-   }
 
-  if(document.frm_produto.txt_foto.value=="") {
-         alert ("Você deve enviar uma foto no campo foto!");
-     document.frm_produto.txt_foto.focus();
- 
-         return false;
-   }
+ function foco() {
+	document.frm_cliente.txt_nome.focus()
+}
+
+ function validar_dados() {
+	if(document.frm_cliente.txt_nome.value=="") {
+        alert ("Você deve preencher o campo Nome!");
+		document.frm_cliente.txt_nome.focus();
+
+        return false;
   }
 
- </script>
- 
+	if(document.frm_cliente.txt_email.value=="") {
+        alert ("Você deve preencher o campo email!");
+		document.frm_cliente.txt_email.focus();
 
-</head>
-<body onload="foco()">
-<form name="frm_produto" id="frm_produto" action="atualizar_produto.php" method="post" enctype="multipart/form-data">
-<div id="principal">
-  <h1> Atualizar produto </h1>
-    <label> Código </label>
-    <input name="txt_codigo" type="text" class="input_01" value="<?php echo $dados['pro_codigo']; ?>">
-    
-    <label> Descrição </label>
-    <input name="txt_descricao" type="text" class="input_01" value="<?php echo $dados['pro_descricao']; ?>">
-    
-    <label> Quantidade </label>
-    <input name="txt_qtde" type="text" class="input_01" value="<?php echo $dados['pro_qtde']; ?>">
-    
-    <label> Preço </label>
-    <input name="txt_preco" type="text" class="input_01" value="<?php echo $dados['pro_preco']; ?>">
+        return false;
+  }
+ }
+  
+</script>
 
-    <label> Status </label>
-    <select name="txt_status" class="select_01">
-    <option value="A" <?php if($dados['pro_status'] == "A") { echo "selected";} ?>> Ativo</option>
-    <option value="I" <?php if($dados['pro_status'] == "I") { echo "selected";} ?>> Inativo</option>
-    </select>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+
+  <!-- Menu -->
+
+        <?php 
+          include('../../navbar.php');
+        ?>
+
+    <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Cadastro</h4>
+
+        <div class="row">
+            <div class="col-xl">
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Cadastro de Produto</h5>
+                    </div>
+                    <div class="card-body">
+                        <form name="frm_produto" id="frm_produto" action="atualizar_produto.php" method="post" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label class="form-label">Codigo</label>
+                                <input type="text" name="txt_codigo" class="form-control" value="<?php echo $dados['pro_codigo']; ?>" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Descrição</label>
+                                <input type="text" name="txt_descricao" class="form-control" placeholder="Insira a descrição..." value="<?php echo $dados['pro_descricao']; ?>" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Quantidade</label>
+                                <input type="text" name="txt_qtde" class="form-control" placeholder="Insira a quantidade..." value="<?php echo $dados['pro_qtde']; ?>" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Preço</label>
+                                <input type="text" name="txt_preco" class="form-control" placeholder="Insira o preço..." />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label"> Status </label>
+                                <select name="txt_status" class="form-select">
+                                <option value="A" <?php if($dados['pro_status'] == "A") { echo "selected";} ?>> Ativo</option>
+                                <option value="I" <?php if($dados['pro_status'] == "I") { echo "selected";} ?>> Inativo</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                            <label class="form-label"> Foto </label>
+                            <input class="form-control" name="txt_foto" type="file" value="<?php echo $dados['pro_foto']; ?>">
+                            <img src="<?php echo $dados['pro_foto']; ?>" width="50px" height="50px">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Fornecedor</label>
+                                <select name="fornecedor" class="form-select">
+                                <option value="" disabled selected> Selecione...</option>
+                                <?php while ($dados2 = mysqli_fetch_array($sql2)) { ?>
     
-    <label> Foto </label>
-    <input name="txt_foto" type="file" class="input_01">
-    <input name="txt_arquivo" type="hidden" class="input_01" value="<?php echo $dados['pro_foto']; ?>">
-    <img src="<?php echo $dados['pro_foto']; ?>" width="50px" height="50px">
- 
-    <label> Fornecedor </label>
-    <select name="txt_fornecedor" class="input_01">
+                                <option value="<?php echo $dados2['for_codigo']; ?>" <?php  if($dados['for_codigo'] == $dados2['for_codigo']) { echo "selected" ; } ?>>
+                                <?php echo utf8_encode($dados2['for_nome']); ?>
+                                </option>
 
-    <?php while ($dados2 = mysqli_fetch_array($sql2)) { ?>
-    
-    <option value="<?php echo $dados2['for_codigo']; ?>" <?php  if($dados['for_codigo'] == $dados2['for_codigo']) { echo "selected" ; } ?>>
-    <?php echo utf8_encode($dados2['for_nome']); ?>
-    </option>
-    <?php } ?>
+                                <?php } ?>
 
-    </select>
-
-    <input name="btn_enviar" type="submit" class="btn" onclick="return validar_dados()">
+                                </select>
+                            </div>
+                            <button name="btn_enviar" type="submit" class="btn btn-primary">Cadastrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-backdrop fade"></div>
+    </div>
 </div>
-</form>
-</body>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../../assets/vendor/js/bootstrap.js"></script>
+    <script src="../../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="../../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+
+    <!-- Main JS -->
+    <script src="../../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </body>
 </html>
+
+    
