@@ -1,6 +1,6 @@
 ﻿<?PHP
 
-require_once('../conexao/banco.php');
+require_once('../../conexao/banco.php');
 
 $venda 	= $_REQUEST['txt_venda'];
 $produto 	= $_REQUEST['txt_produto'];

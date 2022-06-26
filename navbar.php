@@ -186,23 +186,23 @@
 
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="http://localhost/PainelAdministrativo_PHP/modulos/vendas/form_vendas.php" class="menu-link">
+            <a href="http://localhost/PainelAdministrativo_PHP/modulos/venda/form_venda.php" class="menu-link">
               <div data-i18n="Without menu">Cadastro Venda</div>
             </a>
           </li>
 
           <li class="menu-item">
-            <a href="http://localhost/PainelAdministrativo_PHP/modulos/vendas/form_item_vendas.php" class="menu-link">
+            <a href="http://localhost/PainelAdministrativo_PHP/modulos/venda/form_item_venda.php" class="menu-link">
               <div data-i18n="Without menu">Cadastro Item</div>
             </a>
           </li>
           <li class="menu-item">
-            <a href="http://localhost/PainelAdministrativo_PHP/modulos/vendas/consulta_vendas.php" class="menu-link">
+            <a href="http://localhost/PainelAdministrativo_PHP/modulos/venda/consulta_venda.php" class="menu-link">
               <div data-i18n="Without navbar">Consulta Venda</div>
             </a>
           </li>
           <li class="menu-item">
-            <a href="http://localhost/PainelAdministrativo_PHP/modulos/vendas/consulta_item_vendas.phpwithout-navbar.html" class="menu-link">
+            <a href="http://localhost/PainelAdministrativo_PHP/modulos/venda/consulta_item_venda.php" class="menu-link">
               <div data-i18n="Without navbar">Consulta Item</div>
             </a>
           </li>

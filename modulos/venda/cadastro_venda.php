@@ -1,6 +1,6 @@
 ﻿<?PHP
 
-require_once('../conexao/banco.php');
+require_once('../../conexao/banco.php');
 
 $cliente 	= $_REQUEST['txt_cliente'];
 $pagamento 	= $_REQUEST['txt_tipo_pagamento'];
