@@ -32,7 +32,7 @@ $sql = mysqli_query($con, $sql) or die ("Erro na sql!") ;
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Consulta Cliente</title>
+    <title>Consulta Fornecedor</title>
 
     <meta name="description" content="" />
 
