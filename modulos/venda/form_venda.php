@@ -87,7 +87,7 @@ $sql = mysqli_query($con, $sql) or die ("Erro na sql!") ;
                     <div class="col-xl">
                         <div class="card mb-4">
                             <div class="card-header d-flex justify-content-between align-items-center">
-                                <h5 class="mb-0">Cadastro de Cliente</h5>
+                                <h5 class="mb-0">Cadastro de Venda</h5>
                             </div>
                             <div class="card-body">
                             <form name="frm_venda" id="frm_venda" action="cadastro_venda.php" method="post">
