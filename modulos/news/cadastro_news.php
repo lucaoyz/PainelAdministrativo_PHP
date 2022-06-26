@@ -1,6 +1,6 @@
 ﻿<?PHP
 
-require_once('../conexao/banco.php');
+require_once('../../conexao/banco.php');
 
 $titulo 	= $_REQUEST['txt_titulo'];
 $descricao 	= $_REQUEST['txt_descricao'];

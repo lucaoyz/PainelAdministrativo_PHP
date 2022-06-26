@@ -54,42 +54,6 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../../assets/js/config.js"></script>
 
-    <script language="JavaScript">
-	
- function mascara(t, mask){
-
- var i = t.value.length;
- var saida = mask.substring(1,0);
- var texto = mask.substring(i)
- 
-  if (texto.substring(0,1) != saida){
-      t.value += texto.substring(0,1);
-  }
-
- }
-
- function foco() {
-	document.frm_cliente.txt_nome.focus()
-}
-
- function validar_dados() {
-	if(document.frm_cliente.txt_nome.value=="") {
-        alert ("Você deve preencher o campo Nome!");
-		document.frm_cliente.txt_nome.focus();
-
-        return false;
-  }
-
-	if(document.frm_cliente.txt_email.value=="") {
-        alert ("Você deve preencher o campo email!");
-		document.frm_cliente.txt_email.focus();
-
-        return false;
-  }
- }
-  
-</script>
-
   </head>
 
   <body>
